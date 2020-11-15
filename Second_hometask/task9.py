@@ -24,11 +24,13 @@ temp = 10
 population_sizes02 = integrate.odeint(func=population_dynamics, y0=n_0, t=t, args=(r, k, temp))
 
 # Block with plots
-fig, axes = plt.subplots(nrows=1, ncols=3)
+fig, axes = plt.subplots(nrows=1, ncols=3, figsize = (17,5))
 fig.suptitle('Population size simulation', fontsize=12)
 axes[0].plot(t, population_sizes00, label='temp = 37 Celsius')
 axes[0].legend()
 axes[0].grid()
+axes[0].set_xlabel('Time')
+axes[0].set_ylabel('Size')
 
 at = AnchoredText("Population grows with a max speed",
                   prop=dict(size=5), frameon=True,
@@ -46,9 +48,11 @@ at = AnchoredText("Population grows with a lower speed",
                   )
 at.patch.set_boxstyle("round,pad=0.,rounding_size=0.2")
 axes[1].add_artist(at)
+axes[1].set_xlabel('Time')
+axes[1].set_ylabel('Size')
 
 axes[2].plot(t, population_sizes02, label='temp = 10 Celsius')
-axes[2].legend()
+axes[2].legend(loc = 'lower right')
 axes[2].grid()
 at = AnchoredText("Population grows with low speed",
                   prop=dict(size=5), frameon=True,
@@ -56,6 +60,8 @@ at = AnchoredText("Population grows with low speed",
                   )
 at.patch.set_boxstyle("round,pad=0.,rounding_size=0.2")
 axes[2].add_artist(at)
+axes[2].set_xlabel('Time')
+axes[2].set_ylabel('Size')
 
 
 plt.show()

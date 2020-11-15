@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 coordinates = np.zeros((100, 2))
 current_coord = [0, 0]
 for i in range(1, 100):
@@ -13,5 +14,8 @@ for i in range(1, 100):
     coordinates[i] = current_coord
 
 print(coordinates)
-plt.plot(coordinates[::, 0:1:], coordinates[::, 1:2:])
+plt.plot(coordinates[..., 0], coordinates[..., 1])
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.grid()
 plt.show()
