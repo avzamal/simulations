@@ -8,7 +8,7 @@ def round_computations(n, r):
 
 n_0 = 0.3
 t = np.arange(10000)
-rs = np.linspace(0, 4, 35)
+rs = np.linspace(0, 4, 120)
 plt.figure(figsize=(11, 6))
 plt.xlabel('r')
 plt.ylabel('Number')
@@ -20,6 +20,6 @@ for r in rs:
     for time in t[1:]:
         ns[time] = round_computations(ns[time-1], r)
     ns_part = ns[1000:]
-    plt.scatter(np.full(ns_part.size, r), ns_part)
-#plt.savefig('second_plot.png', bbox_inches = 'tight')
-plt.show()
+    plt.scatter(np.full(ns_part.size, r), ns_part, s=0.00001)
+plt.savefig('second_plot.png', bbox_inches = 'tight')
+#plt.show()

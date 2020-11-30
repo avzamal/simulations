@@ -22,6 +22,6 @@ for r in rs:
     for time in t[1:]:
         ns[time] = round_computations(ns[time-1], r)
     ns_part = ns[1000:]
-    plt.scatter(np.full(ns_part.size, r), ns_part)
+    plt.scatter(np.full(ns_part.size, r), ns_part, s=0.00001)
 plt.savefig('fourth_plot.png', bbox_inches='tight')
 plt.show()
